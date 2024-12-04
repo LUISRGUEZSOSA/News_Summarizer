@@ -29,4 +29,27 @@ Los **asistentes virtuales** (como **Siri**, **Alexa** o **Google Assistant**) p
 #### Ejemplo real:
 Un servicio como **Pocket** o **Instapaper** podría ofrecer **resúmenes automáticos** de artículos largos, optimizados según los intereses de los usuarios. Imagina que un usuario lee a menudo sobre **tecnología** o **política**. La aplicación podría generar resúmenes de los artículos más recientes sobre estos temas, presentados de forma concisa, para facilitar la lectura rápida.
 
+## Modelo: T5-small
+
+El modelo T5-small fue entrenado en un gran corpus de texto, lo que significa que tiene una comprensión general del lenguaje. Sin embargo, no está específicamente preentrenado para resúmenes de noticias como el dataset DailyMail. Es por eso que necesitas realizar un *fine-tuning* con este dataset específico para que el modelo aprenda las peculiaridades de este tipo de texto.
+
+### Tamaño adecuado
+T5-small es lo suficientemente pequeño como para ser entrenado en hardware moderado, pero lo suficientemente grande como para ofrecer buenos resultados en tareas de resumen automático.
+
+### Capacidad de fine-tuning
+Puedes ajustar las últimas capas de T5-small y adaptar el modelo al dataset DailyMail para mejorar la calidad de los resúmenes generados.
+
+### Compatibilidad
+El modelo está bien soportado en plataformas como TensorFlow y PyTorch, lo que facilita su implementación y ajuste.
+
+### Resumen
+El modelo T5-small es adecuado para realizar *fine-tuning* en el dataset DailyMail para generar resúmenes automáticos de noticias. El dataset es lo suficientemente grande, pero puede requerir algunos pasos de preprocesamiento y limpieza. Si bien el modelo no está entrenado específicamente para resúmenes de noticias, su capacidad de generalización en tareas de texto lo hace una opción sólida para este problema.
+
+---
+
+## Dataset: DailyMail
+
+El dataset DailyMail está compuesto por artículos de noticias y sus resúmenes (targets) correspondientes. En términos generales, los datos están balanceados en cuanto a la longitud de los artículos y sus resúmenes, ya que cada artículo tiene un resumen de longitud variable.
+
+El dataset DailyMail tiene un número suficientemente grande de ejemplos (aproximadamente 300,000 pares de artículos y resúmenes), lo que debería ser adecuado para realizar un entrenamiento eficaz.
 
