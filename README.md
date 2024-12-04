@@ -29,7 +29,7 @@ Los **asistentes virtuales** (como **Siri**, **Alexa** o **Google Assistant**) p
 #### Ejemplo real:
 Un servicio como **Pocket** o **Instapaper** podría ofrecer **resúmenes automáticos** de artículos largos, optimizados según los intereses de los usuarios. Imagina que un usuario lee a menudo sobre **tecnología** o **política**. La aplicación podría generar resúmenes de los artículos más recientes sobre estos temas, presentados de forma concisa, para facilitar la lectura rápida.
 
-## Modelo: T5-small
+## 🛠️ Modelo: T5-small
 
 El modelo T5-small fue entrenado en un gran corpus de texto, lo que significa que tiene una comprensión general del lenguaje. Sin embargo, no está específicamente preentrenado para resúmenes de noticias como el dataset DailyMail. Es por eso que necesitas realizar un *fine-tuning* con este dataset específico para que el modelo aprenda las peculiaridades de este tipo de texto.
 
@@ -47,7 +47,7 @@ El modelo T5-small es adecuado para realizar *fine-tuning* en el dataset DailyMa
 
 ---
 
-## Dataset: DailyMail
+## 🎯 Dataset: DailyMail
 
 El dataset DailyMail está compuesto por artículos de noticias y sus resúmenes (targets) correspondientes. En términos generales, los datos están balanceados en cuanto a la longitud de los artículos y sus resúmenes, ya que cada artículo tiene un resumen de longitud variable.
 
