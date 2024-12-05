@@ -106,3 +106,33 @@ A continuación, se presentan ejemplos comparativos entre el desempeño del mode
 El diseño de los hiperparámetros fue clave para maximizar el desempeño del modelo dado el tamaño del conjunto de datos y las limitaciones inherentes de T5-Small. La combinación de estrategias como la congelación parcial, una tasa de aprendizaje moderada y una adecuada regularización, junto con la calidad del conjunto de datos CNN/DailyMail, permitió al modelo alcanzar métricas competitivas en la tarea de generación de resúmenes. Estos resultados subrayan la importancia de ajustar cuidadosamente los hiperparámetros y de aprovechar técnicas como la transferencia de aprendizaje para mejorar modelos compactos.
 
 
+# 🧠 Resultados del modelo entrenado:
+
+Tras observar las métricas y cambiar los parámetros que mejor funcionaban, entrenamos el modelo con 100.000 registros de noticias, afinando así en el resumen de éstas. Dada esta noticia:
+
+"""
+Bitcoin surges past $100k for first time
+The price of Bitcoin has for the first time broken past the $100,000 mark, hitting a new record high.
+The value of the world's biggest cryptocurrency has been boosted by hopes US President-elect Donald Trump will adopt crypto-friendly policies.
+The milestone was reached hours after Trump said he would nominate former Securities and Exchange Commission (SEC) commissioner Paul Atkins to run the Wall Street regulator.
+Mr Atkins is seen as being far more pro-cryptocurrency than the current head of the SEC, Gary Gensler.
+The $100,000 milestone prompted celebrations from cryptocurrency fans around the world.
+Bitcoin's wildly fluctuating value has always attracted interest, with its backers reacting with delight when it has passed previous price thresholds - and defiance during its slumps.
+But this particular landmark has been especially keenly anticipated. For weeks charts, memes and predictions have swirled around social media about when the price would hit the figure thought to be one of the holy grails of the crypto world.
+Millions of viewers even tuned in to online watch parties as the price hovered close to $100k.
+The value of a single bitcoin is one of the barometers of optimism in the cryptocurrency industry which is now estimated to be worth $3.3tn, according to analysis firm Coin Market Cap.
+Trump's election victory last month was the catalyst for the latest surge.
+The president-elect has vowed to make the US "the crypto capital of the planet" - a remarkable turnaround given as recently as 2021 he was calling Bitcoin a "scam."
+Also remarkable is just how Bitcoin's price has rocketed. A valuation of $100k represents a 40% increase on election day in the U.S. and more than double the price it started the year at.
+But there's lots more to Bitcoin than the dizzying changes in its value.
+From its enigmatic inventor to the bringing down of the so-called Crypto King, it's a story with many twists and turns, which has seen the making - and losing - of huge fortunes.
+So here's the BBC's list of the seven wildest moments - so far - in Bitcoin's tumultuous history.
+"""
+
+El resultado del modelo preentrenado sin fine-tuning es este:
+"has for the first time broken past the $100,000 mark, hitting a new record high. a valuation of $100k represents a 40% increase on election day in the U.S. and more than double the price it started the year at. but there's lots more to Bitcoin than the dizzying changes in its value. for weeks charts, memes and predictions have swirled around social media about when the price would hit the figure."
+
+Tras nuestro entrenamiento este es el resultado:
+"Bitcoin has for the first time broken past the $100,000 mark, hitting a new record high. The price of a single bitcoin is one of the barometers of optimism in the cryptocurrency industry. A valuation of $100k represents a 40% increase on election day in the U.S. and more than double the price it started the year at. But there's lots more to Bitcoin than the dizzying changes in its value."
+
+Mostrando una clara mejoría en fluidez y comprensión, además siendo capaz de trabajar el contexto de la noticia.
