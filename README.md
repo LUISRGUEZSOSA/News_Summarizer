@@ -53,3 +53,48 @@ El dataset DailyMail está compuesto por artículos de noticias y sus resúmenes
 
 El dataset DailyMail tiene un número suficientemente grande de ejemplos (aproximadamente 300,000 pares de artículos y resúmenes), lo que debería ser adecuado para realizar un entrenamiento eficaz.
 
+## 🚀 Conclusiones
+
+Durante el entrenamiento del modelo **T5-Small** utilizando 100,000 pares de noticias y resúmenes del conjunto de datos **CNN/DailyMail**, se identificaron los mejores parámetros y estrategias que llevaron a obtener métricas ROUGE significativas. Las estadísticas finales alcanzadas por el modelo son las siguientes:
+
+- **ROUGE-1**: 0.3090  
+- **ROUGE-2**: 0.1209  
+- **ROUGE-L**: 0.2300  
+- **ROUGE-LSum**: 0.2614  
+
+### 🔑 Razones de las mejores métricas obtenidas
+
+1. **Congelación parcial del encoder** 🧊:  
+   Al congelar las primeras 5 capas del encoder durante el entrenamiento, se redujo la cantidad de parámetros ajustables. Esto permitió que el modelo aprovechara representaciones preentrenadas efectivas en las capas iniciales mientras se concentraba en ajustar las capas superiores para la tarea específica de resumen. Este enfoque puede haber prevenido problemas de sobreajuste y permitido un mejor aprendizaje en un tiempo limitado.
+
+2. **Tasa de aprendizaje moderada (`5e-5`) y programación lineal** 📉:  
+   El uso de una tasa de aprendizaje relativamente baja, junto con un calentamiento inicial (`warmup_steps=1000`) y un programador lineal, contribuyó a una convergencia más estable. Esta configuración ayudó a evitar actualizaciones agresivas que podrían haber llevado a oscilaciones o degradación del desempeño.
+
+3. **Regularización y estabilidad** 🛡️:  
+   - La **tasa de abandono (`dropout_rate=0.3`)** introdujo una robusta regularización que redujo el riesgo de sobreajuste al conjunto de entrenamiento.  
+   - El **decaimiento de pesos (`weight_decay=0.01`)** contribuyó a limitar la magnitud de los pesos del modelo, mejorando la generalización en el conjunto de evaluación.
+
+4. **Uso eficiente de recursos** ⚡:  
+   - La acumulación de gradientes (`gradient_accumulation_steps=2`) permitió entrenar con un mayor tamaño de lote efectivo sin exceder los límites de memoria.  
+   - El uso de punto flotante mixto (`fp16=True`) aceleró el entrenamiento y mejoró la eficiencia computacional.  
+
+5. **Métricas ROUGE alineadas con la tarea** 📊:  
+   Las métricas ROUGE obtenidas indican un desempeño sólido considerando la capacidad del modelo (T5-Small) y el conjunto de datos empleado.  
+   - **ROUGE-1** y **ROUGE-L**, que evalúan la coincidencia de n-gramas y la secuencia más larga coincidente, destacan la capacidad del modelo para capturar información relevante y estructurar resúmenes coherentes.  
+   - El menor valor de **ROUGE-2**, más exigente, refleja la dificultad inherente de capturar contextos precisos en resúmenes más concisos.
+
+### 🖼️ Comparación del modelo sin entrenar vs. modelo entrenado
+
+A continuación, se presentan ejemplos comparativos entre el desempeño del modelo **sin entrenar** y el modelo **entrenado** en la tarea de resumen de texto.  
+
+#### ✨ Modelo sin entrenar
+![Modelo sin entrenar](ruta/a/la/imagen-sin-entrenar.png)
+
+#### 🔥 Modelo entrenado
+![Modelo entrenado](ruta/a/la/imagen-entrenado.png)
+
+### 💡 Reflexión final
+
+El diseño de los hiperparámetros fue clave para maximizar el desempeño del modelo dado el tamaño del conjunto de datos y las limitaciones inherentes de T5-Small. La combinación de estrategias como la congelación parcial, una tasa de aprendizaje moderada y una adecuada regularización, junto con la calidad del conjunto de datos CNN/DailyMail, permitió al modelo alcanzar métricas competitivas en la tarea de generación de resúmenes. Estos resultados subrayan la importancia de ajustar cuidadosamente los hiperparámetros y de aprovechar técnicas como la transferencia de aprendizaje para mejorar modelos compactos.
+
+
