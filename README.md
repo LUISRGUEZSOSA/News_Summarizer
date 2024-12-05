@@ -95,7 +95,7 @@ Tras observar las métricas y cambiar los parámetros que mejor funcionaban, ent
 
 ```text
 Bitcoin surges past $100k for first time
-The price of Bitcoin has for the first time broken past the $100,000 mark, hitting a new record high.
+The price of Bitcoin <span style="text-decoration: underline; color: red;">has for the first time broken past the $100,000 mark, hitting a new record high<span>
 The value of the world's biggest cryptocurrency has been boosted by hopes US President-elect Donald Trump will adopt crypto-friendly policies.
 The milestone was reached hours after Trump said he would nominate former Securities and Exchange Commission (SEC) commissioner Paul Atkins to run the Wall Street regulator.
 Mr Atkins is seen as being far more pro-cryptocurrency than the current head of the SEC, Gary Gensler.
