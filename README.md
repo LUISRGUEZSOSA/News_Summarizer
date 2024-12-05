@@ -8,6 +8,8 @@ La **tarea de resumir texto automáticamente**, especialmente noticias diarias, 
 
 - **Aplicaciones comerciales**: Sectores como **marketing de contenidos**, **medios de comunicación** y **noticias personalizadas** se benefician de la capacidad de generar resúmenes precisos y bien estructurados, mejorando la experiencia del usuario.
 
+---
+
 # 📰 Utilidad del Resumen Automático de Noticias Diarias
 
 ### a. **Mejora de la experiencia del usuario en plataformas de noticias**  
@@ -28,6 +30,8 @@ Los **asistentes virtuales** (como **Siri**, **Alexa** o **Google Assistant**) p
 
 #### Ejemplo real:
 Un servicio como **Pocket** o **Instapaper** podría ofrecer **resúmenes automáticos** de artículos largos, optimizados según los intereses de los usuarios. Imagina que un usuario lee a menudo sobre **tecnología** o **política**. La aplicación podría generar resúmenes de los artículos más recientes sobre estos temas, presentados de forma concisa, para facilitar la lectura rápida.
+
+---
 
 ## 🛠️ Modelo: T5-small
 
@@ -52,6 +56,8 @@ El modelo T5-small es adecuado para realizar *fine-tuning* en el dataset DailyMa
 El dataset DailyMail está compuesto por artículos de noticias y sus resúmenes (targets) correspondientes. En términos generales, los datos están balanceados en cuanto a la longitud de los artículos y sus resúmenes, ya que cada artículo tiene un resumen de longitud variable.
 
 El dataset DailyMail tiene un número suficientemente grande de ejemplos (aproximadamente 300,000 pares de artículos y resúmenes), lo que debería ser adecuado para realizar un entrenamiento eficaz.
+
+---
 
 ## 🚀 Conclusiones
 
