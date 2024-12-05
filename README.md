@@ -99,7 +99,9 @@ A continuación, se presentan ejemplos comparativos entre el desempeño del mode
 #### Modelo entrenado
 ![Modelo entrenado](ruta/a/la/imagen-entrenado.png)
 
-### 💡 Reflexión final
+---
+
+# 💡 Reflexión final
 
 El diseño de los hiperparámetros fue clave para maximizar el desempeño del modelo dado el tamaño del conjunto de datos y las limitaciones inherentes de T5-Small. La combinación de estrategias como la congelación parcial, una tasa de aprendizaje moderada y una adecuada regularización, junto con la calidad del conjunto de datos CNN/DailyMail, permitió al modelo alcanzar métricas competitivas en la tarea de generación de resúmenes. Estos resultados subrayan la importancia de ajustar cuidadosamente los hiperparámetros y de aprovechar técnicas como la transferencia de aprendizaje para mejorar modelos compactos.
 
