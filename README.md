@@ -61,7 +61,7 @@ El dataset DailyMail tiene un número suficientemente grande de ejemplos (aproxi
 
 ## 🚀 Conclusiones
 
-Durante el entrenamiento del modelo **T5-Small** utilizando 100,000 pares de noticias y resúmenes del conjunto de datos **CNN/DailyMail**, se identificaron los mejores parámetros y estrategias que llevaron a obtener métricas ROUGE significativas. Las estadísticas finales alcanzadas por el modelo son las siguientes:
+Durante el entrenamiento del modelo <a href="google-t5/t5-small">**T5-Small**</a> utilizando 100,000 pares de noticias y resúmenes del conjunto de datos <a href="https://huggingface.co/datasets/abisee/cnn_dailymail">**CNN/DailyMail**</a>, se identificaron los mejores parámetros y estrategias que llevaron a obtener métricas ROUGE significativas. Las estadísticas finales alcanzadas por el modelo son las siguientes:
 
 - **ROUGE-1**: 0.3090  
 - **ROUGE-2**: 0.1209  
