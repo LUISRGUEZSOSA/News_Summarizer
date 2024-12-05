@@ -89,28 +89,11 @@ Durante el entrenamiento del modelo **T5-Small** utilizando 100,000 pares de not
    - **ROUGE-1** y **ROUGE-L**, que evalúan la coincidencia de n-gramas y la secuencia más larga coincidente, destacan la capacidad del modelo para capturar información relevante y estructurar resúmenes coherentes.  
    - El menor valor de **ROUGE-2**, más exigente, refleja la dificultad inherente de capturar contextos precisos en resúmenes más concisos.
 
-### Comparación del modelo sin entrenar vs. modelo entrenado
-
-A continuación, se presentan ejemplos comparativos entre el desempeño del modelo **sin entrenar** y el modelo **entrenado** en la tarea de resumen de texto.  
-
-#### Modelo sin entrenar
-![Modelo sin entrenar](ruta/a/la/imagen-sin-entrenar.png)
-
-#### Modelo entrenado
-![Modelo entrenado](ruta/a/la/imagen-entrenado.png)
-
----
-
-# 💡 Reflexión final
-
-El diseño de los hiperparámetros fue clave para maximizar el desempeño del modelo dado el tamaño del conjunto de datos y las limitaciones inherentes de T5-Small. La combinación de estrategias como la congelación parcial, una tasa de aprendizaje moderada y una adecuada regularización, junto con la calidad del conjunto de datos CNN/DailyMail, permitió al modelo alcanzar métricas competitivas en la tarea de generación de resúmenes. Estos resultados subrayan la importancia de ajustar cuidadosamente los hiperparámetros y de aprovechar técnicas como la transferencia de aprendizaje para mejorar modelos compactos.
-
-
-# 🧠 Resultados del modelo entrenado:
+## 🧠 Resultados del modelo entrenado:
 
 Tras observar las métricas y cambiar los parámetros que mejor funcionaban, entrenamos el modelo con 100.000 registros de noticias, afinando así en el resumen de éstas. Dada esta noticia:
 
-"""
+```text
 Bitcoin surges past $100k for first time
 The price of Bitcoin has for the first time broken past the $100,000 mark, hitting a new record high.
 The value of the world's biggest cryptocurrency has been boosted by hopes US President-elect Donald Trump will adopt crypto-friendly policies.
@@ -127,12 +110,19 @@ Also remarkable is just how Bitcoin's price has rocketed. A valuation of $100k r
 But there's lots more to Bitcoin than the dizzying changes in its value.
 From its enigmatic inventor to the bringing down of the so-called Crypto King, it's a story with many twists and turns, which has seen the making - and losing - of huge fortunes.
 So here's the BBC's list of the seven wildest moments - so far - in Bitcoin's tumultuous history.
-"""
+```
 
 El resultado del modelo preentrenado sin fine-tuning es este:
+```text
 "has for the first time broken past the $100,000 mark, hitting a new record high. a valuation of $100k represents a 40% increase on election day in the U.S. and more than double the price it started the year at. but there's lots more to Bitcoin than the dizzying changes in its value. for weeks charts, memes and predictions have swirled around social media about when the price would hit the figure."
-
+```
 Tras nuestro entrenamiento este es el resultado:
+```text
 "Bitcoin has for the first time broken past the $100,000 mark, hitting a new record high. The price of a single bitcoin is one of the barometers of optimism in the cryptocurrency industry. A valuation of $100k represents a 40% increase on election day in the U.S. and more than double the price it started the year at. But there's lots more to Bitcoin than the dizzying changes in its value."
-
+```
 Mostrando una clara mejoría en fluidez y comprensión, además siendo capaz de trabajar el contexto de la noticia.
+---
+
+# 💡 Reflexión final
+
+El diseño de los hiperparámetros fue clave para maximizar el desempeño del modelo dado el tamaño del conjunto de datos y las limitaciones inherentes de T5-Small. La combinación de estrategias como la congelación parcial, una tasa de aprendizaje moderada y una adecuada regularización, junto con la calidad del conjunto de datos CNN/DailyMail, permitió al modelo alcanzar métricas competitivas en la tarea de generación de resúmenes. Estos resultados subrayan la importancia de ajustar cuidadosamente los hiperparámetros y de aprovechar técnicas como la transferencia de aprendizaje para mejorar modelos compactos.
